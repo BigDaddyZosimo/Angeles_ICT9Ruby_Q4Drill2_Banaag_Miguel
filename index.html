@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q4 Drill 2</title>
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.tite {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+}
+</style>
+
+<body>
+    <div class="tite">
+    <h1>Heat Checker</h1>
+    <p>ENTER THE TEMP AND HEAT TO SEE HOW MY FURY FEELS BAAAAKAAAAAA</p>
+
+    <details> (thanks for this cool code google)
+        <p>How to use</p>
+        <p>TYPE THE TEMP AND HUMIDITY U IDJOT!</p>
+        <P>SIR COPY PASTE, NOT AI CUS IM OTEN THICK, AY AUTHENTIC</P>
+    </details>
+
+    <br>
+
+    <label>Temperature °C:</label>
+    <input type="number" id="tempInput" placeholder="sampullll 30">
+    <br><br>
+    <label>Humidity:</label>
+    <input type="number" id="humidInput" placeholder="sampolll 60">
+    <br><br>
+
+    <button onclick="checkHeat()">Check Heat Index</button>
+
+    <h3 id="result"></h3>
+    
+
+    <script>
+        function checkHeat() {
+            var temp = parseFloat(document.getElementById("tempInput").value);
+            var humid = parseFloat(document.getElementById("humidInput").value);
+
+            var heatIndex = temp + (0.33 * humid) - 4;
+            heatIndex = Math.round(heatIndex);
+
+            var status;
+
+            if (heatIndex <= 27.99) {
+                status = "SO COLD KASING LAMIG KO";
+            } else if (heatIndex <= 32.99) {
+                status = "SAKTO LANG";
+            } else if (heatIndex <= 37.99) {
+                status = "HOT BRO";
+            } else if (heatIndex <= 41.99) {
+                status = "SO HAT";
+            } else {
+                status = "SUPER INIT, KATULAD KO";
+            }
+
+            document.getElementById("result").innerHTML = "Heat Index: " + heatIndex + "°C — " + status;
+        }
+    </script> 
+    </div>
+</body>
+</html>
